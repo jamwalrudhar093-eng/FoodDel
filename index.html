@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CampusBite - a simple food ordering app for a college project">
+  <title>CampusBite | Food Ordering App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#" aria-label="CampusBite home">
+        <span class="logo">🍔</span>
+        <span>Campus<span>Bite</span></span>
+      </a>
+      <nav>
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <button id="cartBtn" class="cart-button" type="button">🛒 Cart <span id="cartCount">0</span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">FAST • FRESH • CAMPUS-FRIENDLY</p>
+          <h1>Your favourite food, <span>one click away.</span></h1>
+          <p class="hero-text">Order meals, snacks and drinks from CampusBite without waiting in a long canteen queue.</p>
+          <a href="#menu" class="primary-btn">Explore Menu</a>
+        </div>
+        <div class="hero-card">
+          <div class="hero-food">🍕</div>
+          <div>
+            <strong>Today's Special</strong>
+            <p>Cheesy Farmhouse Pizza</p>
+            <b>₹199</b>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu" class="container menu-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">OUR MENU</p>
+          <h2>What are you craving?</h2>
+        </div>
+        <div class="search-wrap">
+          <label for="search" class="sr-only">Search food</label>
+          <input id="search" type="search" placeholder="Search dishes...">
+        </div>
+      </div>
+
+      <div id="categories" class="categories" aria-label="Food categories"></div>
+      <div id="foodGrid" class="food-grid"></div>
+      <p id="emptyState" class="empty-state hidden">No dishes found. Try another search or category.</p>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container about-grid">
+        <div>
+          <p class="eyebrow">WHY CAMPUSBITE?</p>
+          <h2>Made for student life.</h2>
+          <p>CampusBite is a front-end college project demonstrating menu browsing, search, filtering, a shopping cart, checkout and local browser storage using only HTML, CSS and JavaScript.</p>
+        </div>
+        <div class="features">
+          <div><span>⚡</span><strong>Quick</strong><small>Simple ordering flow</small></div>
+          <div><span>💰</span><strong>Affordable</strong><small>Student-friendly prices</small></div>
+          <div><span>📱</span><strong>Responsive</strong><small>Works on mobile & desktop</small></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="cartOverlay" class="overlay hidden"></div>
+  <aside id="cartPanel" class="cart-panel" aria-label="Shopping cart">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button id="closeCart" class="icon-btn" type="button" aria-label="Close cart">✕</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-footer">
+      <div class="summary-row"><span>Subtotal</span><strong id="subtotal">₹0</strong></div>
+      <div class="summary-row"><span>Delivery</span><strong id="delivery">₹30</strong></div>
+      <div class="summary-row total"><span>Total</span><strong id="total">₹0</strong></div>
+      <button id="checkoutBtn" class="primary-btn full" type="button">Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <div id="checkoutModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+    <div class="modal-card">
+      <button id="closeCheckout" class="icon-btn modal-close" type="button" aria-label="Close checkout">✕</button>
+      <p class="eyebrow">CHECKOUT</p>
+      <h2 id="checkoutTitle">Complete your order</h2>
+      <form id="checkoutForm">
+        <label>Full Name<input name="name" required placeholder="Enter your name"></label>
+        <label>Phone Number<input name="phone" required pattern="[0-9]{10}" maxlength="10" placeholder="10-digit mobile number"></label>
+        <label>Delivery Location<textarea name="address" required rows="3" placeholder="Hostel / room / campus location"></textarea></label>
+        <label>Payment Method
+          <select name="payment" required>
+            <option value="Cash on Delivery">Cash on Delivery</option>
+            <option value="UPI">UPI</option>
+          </select>
+        </label>
+        <button class="primary-btn full" type="submit">Place Order</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="successModal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-card success-card">
+      <div class="success-icon">✓</div>
+      <p class="eyebrow">ORDER CONFIRMED</p>
+      <h2>Thanks for ordering!</h2>
+      <p id="successMessage">Your order has been placed successfully.</p>
+      <button id="doneBtn" class="primary-btn" type="button">Done</button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© 2026 CampusBite</span>
+      <span>College Project • HTML + CSS + JavaScript</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

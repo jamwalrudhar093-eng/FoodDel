@@ -188,19 +188,47 @@ document.getElementById("checkoutBtn").addEventListener("click", () => {
 document.getElementById("closeCheckout").addEventListener("click", () => closeModal(checkoutModal));
 document.getElementById("doneBtn").addEventListener("click", () => closeModal(successModal));
 
-document.getElementById("checkoutForm").addEventListener("submit", event => {
+document.getElementById("checkoutForm").addEventListener("submit", async event => {
   event.preventDefault();
+
   const form = new FormData(event.target);
-  const orderId = "CB" + Math.floor(100000 + Math.random() * 900000);
-  const total = totalEl.textContent;
-  document.getElementById("successMessage").textContent =
-    `Order ${orderId} has been placed for ${total}. Your food will be prepared shortly.`;
-  cart = [];
-  saveCart();
-  renderCart();
-  event.target.reset();
-  closeModal(checkoutModal);
-  openModal(successModal);
+
+  const orderData = {
+    name: form.get("name"),
+    phone: form.get("phone"),
+    address: form.get("address"),
+    payment: form.get("payment"),
+    items: cart
+  };
+
+  try {
+    const response = await fetch(`${API_URL}/api/orders`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(orderData)
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || "Failed to place order");
+    }
+
+    document.getElementById("successMessage").textContent =
+      `Order ${data.order.orderId} has been placed for ${money(data.order.total)}. Your food will be prepared shortly.`;
+
+    cart = [];
+    saveCart();
+    renderCart();
+    event.target.reset();
+    closeModal(checkoutModal);
+    openModal(successModal);
+
+  } catch (error) {
+    alert("Unable to place order: " + error.message);
+  }
 });
 
 renderCategories();

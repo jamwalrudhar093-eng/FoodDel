@@ -1,4 +1,7 @@
-const express = require('express');
+"dependencies": {
+  "express": "^5.1.0",
+  "cors": "^2.8.5"
+}
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');

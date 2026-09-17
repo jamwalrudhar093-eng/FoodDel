@@ -1,10 +1,8 @@
-"dependencies": {
-  "express": "^5.1.0",
-  "cors": "^2.8.5"
-}
+const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -286,10 +284,4 @@ app.listen(PORT, () => {
   );
 });
 
-ensureDataFile();
 
-app.listen(PORT, () => {
-  console.log(
-    `CampusBite running on port ${PORT}`
-  );
-});

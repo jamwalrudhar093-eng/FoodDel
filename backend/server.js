@@ -274,9 +274,11 @@ app.patch('/api/orders/:id/status', (req, res) => {
 });
 
 /* Serve Frontend */
-app.get('*', (req, res) => {
-  res.sendFile(
-    path.join(__dirname, 'index.html')
+ensureDataFile();
+
+app.listen(PORT, () => {
+  console.log(
+    `CampusBite running on port ${PORT}`
   );
 });
 

@@ -28,31 +28,4 @@ food-ordering-app/
 └── README.md
 ```
 
-## Run locally
 
-Simply open `index.html` in a browser.
-
-For a local development server, you can also use VS Code Live Server.
-
-## Deploy on GitHub Pages
-
-1. Create a new GitHub repository, for example `food-ordering-app`.
-2. Upload `index.html`, `style.css`, `script.js`, and `README.md`.
-3. Open **Settings → Pages**.
-4. Under **Build and deployment**, select **Deploy from a branch**.
-5. Select the `main` branch and `/ (root)`.
-6. Save.
-7. GitHub will provide your public website URL.
-
-## Important project limitation
-
-This is a front-end demonstration. Orders are not sent to a real restaurant because there is no backend/database/payment gateway.
-
-For a full-stack version, you could add:
-- Node.js + Express backend
-- MongoDB database
-- User login/signup
-- Restaurant/admin dashboard
-- Real order tracking
-- Payment gateway
-- Order history

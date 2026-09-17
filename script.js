@@ -1,3 +1,4 @@
+const API_URL = "https://fooddel-backend.onrender.com";
 const foods = [
   { id: 1, name: "Campus Burger", category: "Burgers", price: 99, emoji: "🍔", description: "Crispy patty, lettuce, tomato and house sauce." },
   { id: 2, name: "Farmhouse Pizza", category: "Pizza", price: 199, emoji: "🍕", description: "Loaded with onion, capsicum, corn and cheese." },

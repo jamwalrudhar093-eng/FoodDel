@@ -13,6 +13,7 @@ const DATA_DIR = path.join(__dirname, 'data');
 const ORDERS_FILE = path.join(DATA_DIR, 'orders.json');
 
 app.use(express.json());
+app.use(cors());
 app.use(express.static(__dirname));
 
 const foods = [

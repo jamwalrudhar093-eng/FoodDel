@@ -278,7 +278,25 @@ app.patch('/api/orders/:id/status', (req, res) => {
 
 /* Serve Frontend */
 ensureDataFile();
+// Login API
+app.post("/api/login", (req, res) => {
+  const { email, password } = req.body;
 
+  // Demo login credentials
+  if (email === "student@fooddel.com" && password === "123456") {
+    return res.json({
+      success: true,
+      user: {
+        email: email,
+        name: "FoodDel Student"
+      }
+    });
+  }
+
+  res.status(401).json({
+    error: "Invalid email or password"
+  });
+});
 app.listen(PORT, () => {
   console.log(
     `CampusBite running on port ${PORT}`

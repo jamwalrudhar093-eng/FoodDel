@@ -8,6 +8,13 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <script>
+  const loggedInUser = localStorage.getItem("campusbite-user");
+
+  if (!loggedInUser) {
+    window.location.href = "login.html";
+  }
+  </script>
   <header class="topbar">
     <div class="container nav">
       <a class="brand" href="#" aria-label="CampusBite home">

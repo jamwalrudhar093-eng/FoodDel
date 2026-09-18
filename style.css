@@ -183,4 +183,19 @@ form input:focus, form textarea:focus, form select:focus { border-color: var(--p
   .search-wrap input { width: 100%; }
   .features { grid-template-columns: 1fr; }
   .footer-inner { padding: 14px 0; flex-direction: column; align-items: flex-start; }
+  .login-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 700;
+  transition: 0.2s;
+}
+
+.login-button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
 }
